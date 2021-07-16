@@ -1,0 +1,9 @@
+def reversep(l1):
+    l2=[] #let's create and append this l2 and reverse at the end on iteration
+    for ele in l1:
+        if type(ele)==list: #if element is a list, call this function to reverse it, and append
+            l2.append(reversep(ele))
+        else:
+            l2.append(ele) #non-list items appended as they are
+    l2.reverse() #reverse and return 
+    return l2

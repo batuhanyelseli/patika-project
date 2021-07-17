@@ -1,0 +1,14 @@
+def flattener(l1):
+    control=False # look for each item in list, if any is list control is false
+    while control==False:
+        control= True
+        for i in range(len(l1)):
+            if type(l1[i])==list: # if we are at list below "opens" it and inserts
+                lnew=l1[0:i]+l1[i]+l1[i+1:]
+                break
+        l1=lnew.copy() # original list becomes inserted list
+        for i in l1:
+            if type(i)==list: # check if there is any list in new list
+                control= False
+                break
+        return l1
